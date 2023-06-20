@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import "./testimonial.css";
 import AVTRI from '../../assets/img.jpg'
 import AVTRI1 from "../../assets/img.jpg";
@@ -30,7 +30,7 @@ const testimonial = () => {
         slidesPerView={1}
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}*/}
+        onSlideChange={() => console.log("slide change")}*//*}
         <SwiperSlide className="testimonial">
           <div className="client__avatar">
             <img src={AVTRI} alt="avatar" />

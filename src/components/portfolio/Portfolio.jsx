@@ -1,4 +1,5 @@
-import React from 'react';
+/*import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import "./portfolio.css";
 import IMGI from '../../assets/portfolio1.jpeg'
 import IMGI1 from '../../assets/images.jpeg'
@@ -9,12 +10,32 @@ import IMGI5 from "../../assets/portfolio6.jpeg";
 
 
 const Portfolio = () => {
+   const [data, setData] = useState([]);
+
+   useEffect(() =>{
+    axios
+    .get("https://teal-smiling-elk.cyclic.app/api/portfolio") 
+    .then(response=>{
+      const formattedData = response.data.data.map(item => ({
+        id: item._id
+        image: item.image,
+        title: item.title,
+        github: item.github,
+        demo: item.demo
+       }));
+       setData(formattedData);
+    }).catch(error =>{
+      console.error('Error fetching portfolio dataa:', error);
+    });
+   }, [])
+
     return (
       <section id="portfolio">
         <h5>My Recent Work</h5>
         <h2>Porfolio</h2>
 
         <div className="container portfolio__container">
+          {data.map(({ id, image, title, github, demo}) =>)
           <article className="portfolio__item">
             <div className="portfolio__item-image">
               <img src={IMGI} alt="porfolio" />
@@ -27,6 +48,8 @@ const Portfolio = () => {
                   href="https://dribble.com/Alien_pixels"
                   className="btn btn-primary"
                 >
+          }
+
                   Live Demo
                 </a>
               </div>
